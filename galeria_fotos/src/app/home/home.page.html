@@ -13,7 +13,23 @@
     </ion-toolbar>
   </ion-header>
 
+
   <div id="container">
-    <img *ngFor="let photo of galeria" [src]=photo.photo_url>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6" size-md="2" *ngFor="let photo of galeria">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-title>{{photo.id}}</ion-card-title>
+            </ion-card-header>
+          
+            <ion-card-content>
+              <img [src]=photo.photo_url>
+              <p>{{photo.text || '-' }}</p>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 </ion-content>
