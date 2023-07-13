@@ -10,20 +10,22 @@ export class HomePage implements OnInit {
 
   constructor() {}
 
+  public galeria: Array<IPhoto> = [];
+  
   ngOnInit(){
     this.createArray();
   }
 
   public createArray(): void {
-    const photos: Array<IPhoto> = [];
-    for (let index = 0; index < 4000; index++) {
-      photos.push({
-        id: 1, 
-        photo: "2",
-        text: "3",
+    for (let index = 0; index < 20; index = index + 1) {
+      this.galeria.push({
+        id: index + 1, 
+        photo_url: `https://picsum.photos/id/${index + 1}/500/500.jpg`,
+        text: 'Esta es la descripcion de la foto con id ' + (index + 1) + '.',
       })
     }
-    console.log('galeria: ', photos);
+    
+    console.log('galeria: ', this.galeria);
   }
 
 }
